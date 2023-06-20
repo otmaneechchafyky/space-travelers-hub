@@ -19,7 +19,6 @@ const missionsSlice = createSlice({
       const mission = state.missions.find((mission) => mission.mission_id === missionId);
       if (mission) {
         mission.active = true;
-        console.log('found mission ', mission.active);
       }
     },
     leaveMission: (state, action) => {
@@ -27,7 +26,6 @@ const missionsSlice = createSlice({
       const mission = state.missions.find((mission) => mission.mission_id === missionId);
       if (mission) {
         mission.active = false;
-        console.log('found mission ', mission.active);
       }
     },
   },

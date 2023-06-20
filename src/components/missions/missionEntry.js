@@ -1,15 +1,18 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { joinMission, leaveMission } from '../../redux/missions/missionsSlice';
 
 const MissionsEntry = ({ mission }) => {
   const dispatch = useDispatch();
+  const missionData = mission;
   const [status, setStatus] = useState('');
   const [action, setAction] = useState('');
   const [isActive, setIsActive] = useState();
 
   const checkStatus = () => {
-    if (mission.active === true) {
+    if (missionData.active === true) {
       setIsActive(true);
       setStatus('Active Member');
       setAction('Leave Mission');
@@ -22,11 +25,11 @@ const MissionsEntry = ({ mission }) => {
 
   const handleStatusAction = () => {
     if (!isActive) {
-      dispatch(joinMission(mission.mission_id));
+      dispatch(joinMission(missionData.mission_id));
       setStatus('Active Member');
       setAction('Leave Mission');
     } else {
-      dispatch(leaveMission(mission.mission_id));
+      dispatch(leaveMission(missionData.mission_id));
       setStatus('Not A member');
       setAction('Join Mission');
     }
@@ -37,18 +40,22 @@ const MissionsEntry = ({ mission }) => {
   }, [action]);
   return (
     <tr>
-      <td>{mission.mission_name}</td>
-      <td>{mission.description}</td>
+      <td>{missionData.mission_name}</td>
+      <td>{missionData.description}</td>
       <td>
         {status}
       </td>
       <td>
-        <button type="button" id={mission.mission_id} onClick={handleStatusAction}>
+        <button type="button" id={missionData.mission_id} onClick={handleStatusAction}>
           {action}
         </button>
       </td>
     </tr>
   );
+};
+
+MissionsEntry.propTypes = {
+  mission: PropTypes.shape({}).isRequired,
 };
 
 export default MissionsEntry;
