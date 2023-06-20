@@ -36,7 +36,7 @@ const MissionsEntry = ({ mission }) => {
 
   useEffect(() => {
     checkStatus();
-  }, [action]);
+  }, [action, status, isActive]);
   return (
     <tr>
       <td>{missionData.mission_name}</td>
