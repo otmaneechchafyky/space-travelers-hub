@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { joinMission } from '../../redux/missions/missionsSlice';
+import { joinMission, leaveMission } from '../../redux/missions/missionsSlice';
 
 const MissionsEntry = ({ mission }) => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const MissionsEntry = ({ mission }) => {
       setStatus('Active Member');
       setAction('Leave Mission');
     } else {
-      // dispatch(leaveMission(mission.mission_id));
+      dispatch(leaveMission(mission.mission_id));
       setStatus('Not A member');
       setAction('Join Mission');
     }
