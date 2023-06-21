@@ -1,28 +1,6 @@
-// import React, { useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { fetchRockets } from '../redux/rockets/rockets.slice';
-
-// const Rockets = () => {
-//   const RocketsList = useSelector((store) => store.Rockets.RocketsList);
-//   const dispatch = useDispatch();
-
-//   useEffect(() => {
-//     dispatch(fetchRockets());
-//   }, [dispatch]);
-
-//     <div>
-//       <section>
-//         {RocketsList[0]}
-//         ;
-//       </section>
-//     </div>;
-// };
-
-// export default Rockets;
-
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRockets } from '../redux/rockets/rockets.slice';
+import { fetchRockets, reserveRocket, cancelReserve } from '../redux/rockets/rocketsSlice';
 
 const Rockets = () => {
   const dispatch = useDispatch();
@@ -41,14 +19,30 @@ const Rockets = () => {
     <div>
       <ul>
         {rocketsList.map((rocket) => (
-
-          <li key={rocket.id}>
-            <img src={rocket.flickr_images} alt={rocket.rocket_name} />
-            <h2>{rocket.rocket_name}</h2>
-            <p>{rocket.description}</p>
-            <button type="button">Reserve Rocket</button>
-          </li>
-
+          rocket.reserved
+            ? (
+              <li key={rocket.id}>
+                <img className="image" src={rocket.flickr_images} alt={rocket.rocket_name} />
+                <h2>
+                  {rocket.rocket_name}
+                </h2>
+                <div>
+                  <span>Reserved</span>
+                  <p>{rocket.description}</p>
+                </div>
+                <button type="button" onClick={() => { dispatch(cancelReserve(rocket.id)); }}>Cancel reserve</button>
+              </li>
+            )
+            : (
+              <li key={rocket.id}>
+                <img className="image" src={rocket.flickr_images} alt={rocket.rocket_name} />
+                <h2>
+                  {rocket.rocket_name}
+                </h2>
+                <p>{rocket.description}</p>
+                <button type="button" onClick={() => { dispatch(reserveRocket(rocket.id)); }}>Reserve Rocket</button>
+              </li>
+            )
         ))}
       </ul>
     </div>
