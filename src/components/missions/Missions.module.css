@@ -1,0 +1,94 @@
+.missionsWrapper {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.missionsTable {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #dededf;
+}
+
+.tableRow:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.tableData {
+  padding: 1rem;
+  width: fit-content;
+}
+
+.columnTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-inline-start: 1rem;
+  text-align: left;
+}
+
+.tableContent:first-child {
+  background-color: red;
+}
+
+.missionName {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.missionDescription {
+  font-size: 0.8rem;
+  font-weight: 400;
+  padding-inline: 0.5rem;
+  padding-block-end: 0.5rem;
+  text-align: left;
+}
+
+.status {
+  display: block;
+  width: 95px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 5px 4px;
+  background-color: #6d757e;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.statusActive {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 2px;
+  background-color: #4fa2b9;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.action {
+  display: block;
+  width: 105px;
+  font-size: 0.9rem;
+  padding: 7px 2px;
+  border-radius: 5px;
+  border: 1px solid #404142;
+  color: #404142;
+  background-color: transparent;
+}
+
+.actionActive {
+  display: block;
+  font-size: 0.9rem;
+  padding: 10px 4px;
+  border-radius: 5px;
+  border: 1px solid #fa7988;
+  color: #fa7988;
+  background-color: transparent;
+}

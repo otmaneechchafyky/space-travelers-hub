@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { joinMission, leaveMission } from '../../redux/missions/missionsSlice';
+import missionStyles from './Missions.module.css';
 
 const MissionsEntry = ({ mission }) => {
   const dispatch = useDispatch();
@@ -38,15 +39,32 @@ const MissionsEntry = ({ mission }) => {
     checkStatus();
   }, [action, status, isActive]);
   return (
-    <tr>
-      <td>{missionData.mission_name}</td>
-      <td>{missionData.description}</td>
-      <td>{status}</td>
-      <td>
+    <tr className={`${missionStyles.missionEntry} ${missionStyles.tableRow}`} style={{ borderBottom: '1px solid #eceef0' }}>
+      <td
+        style={{ borderRight: '1px solid #eceef0' }}
+        className={`${missionStyles.missionName} ${missionStyles.tableData}`}
+      >
+        {missionData.mission_name}
+      </td>
+      <td
+        style={{ borderRight: '1px solid #eceef0' }}
+        className={`${missionStyles.missionDescription} ${missionStyles.tableData}`}
+      >
+        {missionData.description}
+      </td>
+      <td style={{ borderRight: '1px solid #eceef0' }} className={missionStyles.tableData}>
+        <span
+          className={isActive ? missionStyles.statusActive : missionStyles.status}
+        >
+          {status}
+        </span>
+      </td>
+      <td className={missionStyles.tableData}>
         <button
           type="button"
           id={missionData.mission_id}
           onClick={handleStatusAction}
+          className={isActive ? missionStyles.actionActive : missionStyles.action}
         >
           {action}
         </button>

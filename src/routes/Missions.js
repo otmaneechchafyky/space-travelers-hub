@@ -1,23 +1,23 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import MissionsEntry from '../components/missions/missionEntry';
+import missionStyles from '../components/missions/Missions.module.css';
 
 const Missions = () => {
   const missions = useSelector((store) => store.missions.missions);
 
   return (
-    <div>
-      <h2>Missions</h2>
-      <table>
-        <thead>
+    <div className={missionStyles.missionsWrapper}>
+      <table className={missionStyles.missionsTable}>
+        <thead className={missionStyles.missionsTable}>
           <tr>
-            <th>Mission</th>
-            <th>Description</th>
-            <th>Status</th>
-            <th>Action</th>
+            <th className={missionStyles.columnTitle} style={{ borderRight: '1px solid #eceef0' }}>Mission</th>
+            <th className={missionStyles.columnTitle} style={{ borderRight: '1px solid #eceef0' }}>Description</th>
+            <th className={missionStyles.columnTitle} style={{ borderRight: '1px solid #eceef0' }}>Status</th>
+            <th className={missionStyles.columnTitle}>Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className={missionStyles.tableContent}>
           {missions.map((mission) => (
             <MissionsEntry
               key={mission.mission_name}
