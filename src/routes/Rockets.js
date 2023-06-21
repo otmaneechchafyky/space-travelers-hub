@@ -1,16 +1,10 @@
-// import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { reserveRocket, cancelReserve } from '../redux/rockets/rocketsSlice';
 
 const Rockets = ({ rocketsList }) => {
   const dispatch = useDispatch();
-  // const rocketsList = useSelector((state) => state.rockets.rocketsList);
   const loading = useSelector((state) => state.rockets.loading);
-
-  // useEffect(() => {
-  //   dispatch(fetchRockets());
-  // }, [dispatch]);
 
   if (loading) {
     return <p>Loading...</p>;
