@@ -1,15 +1,16 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRockets, reserveRocket, cancelReserve } from '../redux/rockets/rocketsSlice';
+import { reserveRocket, cancelReserve } from '../redux/rockets/rocketsSlice';
 
-const Rockets = () => {
+const Rockets = ({ rocketsList }) => {
   const dispatch = useDispatch();
-  const rocketsList = useSelector((state) => state.rockets.rocketsList);
+  // const rocketsList = useSelector((state) => state.rockets.rocketsList);
   const loading = useSelector((state) => state.rockets.loading);
 
-  useEffect(() => {
-    dispatch(fetchRockets());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchRockets());
+  // }, [dispatch]);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -47,6 +48,18 @@ const Rockets = () => {
       </ul>
     </div>
   );
+};
+
+Rockets.propTypes = {
+  rocketsList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      flickr_images: PropTypes.string.isRequired,
+      rocket_name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      reserved: PropTypes.bool.isRequired,
+    }),
+  ).isRequired,
 };
 
 export default Rockets;
