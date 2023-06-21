@@ -1,16 +1,22 @@
-import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { Routes, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchRockets } from './redux/rockets/rocketsSlice';
+import { fetchMissions } from './redux/missions/missionsSlice';
 import Layout from './routes/Layout';
 import Profile from './routes/Profile';
 import Rockets from './routes/Rockets';
 import Missions from './routes/Missions';
 import NotMatch from './routes/NotMatch';
 import './App.css';
-import { fetchMissions } from './redux/missions/missionsSlice';
 
 function App() {
+  const rocketsList = useSelector((state) => state.rockets.rocketsList);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchRockets());
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(fetchMissions());
@@ -19,7 +25,10 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="Rockets" element={<Rockets />} />
+          <Route
+            path="Rockets"
+            element={<Rockets rocketsList={rocketsList} />}
+          />
           <Route path="profile" element={<Profile />} />
           <Route path="Missions" element={<Missions />} />
           <Route path="*" element={<NotMatch />} />
