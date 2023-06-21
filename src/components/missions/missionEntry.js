@@ -41,11 +41,13 @@ const MissionsEntry = ({ mission }) => {
     <tr>
       <td>{missionData.mission_name}</td>
       <td>{missionData.description}</td>
+      <td>{status}</td>
       <td>
-        {status}
-      </td>
-      <td>
-        <button type="button" id={missionData.mission_id} onClick={handleStatusAction}>
+        <button
+          type="button"
+          id={missionData.mission_id}
+          onClick={handleStatusAction}
+        >
           {action}
         </button>
       </td>
