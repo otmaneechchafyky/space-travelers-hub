@@ -15,11 +15,8 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchRockets());
-  }, [dispatch]);
-
-  useEffect(() => {
     dispatch(fetchMissions());
+    dispatch(fetchRockets());
   }, [dispatch]);
   return (
     <div className="App">
