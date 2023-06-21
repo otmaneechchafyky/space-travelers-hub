@@ -39,10 +39,20 @@ const MissionsEntry = ({ mission }) => {
     checkStatus();
   }, [action, status, isActive]);
   return (
-    <tr className={`${missionStyles.missionEntry} ${missionStyles.tableRow}`}>
-      <td className={`${missionStyles.missionName} ${missionStyles.tableData}`}>{missionData.mission_name}</td>
-      <td className={`${missionStyles.missionDescription} ${missionStyles.tableData}`}>{missionData.description}</td>
-      <td className={missionStyles.tableData}>
+    <tr className={`${missionStyles.missionEntry} ${missionStyles.tableRow}`} style={{ borderBottom: '1px solid #eceef0' }}>
+      <td
+        style={{ borderRight: '1px solid #eceef0' }}
+        className={`${missionStyles.missionName} ${missionStyles.tableData}`}
+      >
+        {missionData.mission_name}
+      </td>
+      <td
+        style={{ borderRight: '1px solid #eceef0' }}
+        className={`${missionStyles.missionDescription} ${missionStyles.tableData}`}
+      >
+        {missionData.description}
+      </td>
+      <td style={{ borderRight: '1px solid #eceef0' }} className={missionStyles.tableData}>
         <span
           className={isActive ? missionStyles.statusActive : missionStyles.status}
         >

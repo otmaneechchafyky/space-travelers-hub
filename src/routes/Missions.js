@@ -11,9 +11,9 @@ const Missions = () => {
       <table className={missionStyles.missionsTable}>
         <thead className={missionStyles.missionsTable}>
           <tr>
-            <th className={missionStyles.columnTitle}>Mission</th>
-            <th className={missionStyles.columnTitle}>Description</th>
-            <th className={missionStyles.columnTitle}>Status</th>
+            <th className={missionStyles.columnTitle} style={{ borderRight: '1px solid #eceef0' }}>Mission</th>
+            <th className={missionStyles.columnTitle} style={{ borderRight: '1px solid #eceef0' }}>Description</th>
+            <th className={missionStyles.columnTitle} style={{ borderRight: '1px solid #eceef0' }}>Status</th>
             <th className={missionStyles.columnTitle}>Action</th>
           </tr>
         </thead>

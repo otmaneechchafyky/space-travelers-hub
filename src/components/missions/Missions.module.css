@@ -8,9 +8,9 @@
 
 .missionsTable {
   width: 100%;
-  border-collapse: none;
+  border-collapse: collapse;
   border-spacing: 0;
-  border-color: black;
+  border: 1px solid #dededf;
 }
 
 .tableRow:nth-child(odd) {
