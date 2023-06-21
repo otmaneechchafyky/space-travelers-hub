@@ -8,6 +8,7 @@ import Rockets from './routes/Rockets';
 import Missions from './routes/Missions';
 import NotMatch from './routes/NotMatch';
 import './App.css';
+import { fetchMissions } from './redux/missions/missionsSlice';
 
 function App() {
   const rocketsList = useSelector((state) => state.rockets.rocketsList);
@@ -15,6 +16,10 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchRockets());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchMissions());
   }, [dispatch]);
   return (
     <div className="App">
