@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchRockets } from './redux/rockets/rocketsSlice';
-import { fetchMissions } from './redux/missions/missionsSlice';
+// import { fetchMissions } from './redux/missions/missionsSlice';
 import Layout from './routes/Layout';
 import Profile from './routes/Profile';
 import Rockets from './routes/Rockets';
@@ -15,7 +15,6 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchRockets());
-    dispatch(fetchMissions());
   }, [dispatch]);
   return (
     <div className="App">

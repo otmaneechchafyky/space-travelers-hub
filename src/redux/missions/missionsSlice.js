@@ -3,7 +3,17 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const fetchMissions = createAsyncThunk('missions/fetchMissions', async () => {
   const response = await fetch('https://api.spacexdata.com/v3/missions');
   const data = await response.json();
-  return data;
+  const filteredMissions = [];
+  const filterBy = ['mission_id', 'mission_name', 'description'];
+  data.map((mission) => {
+    const newMissionObject = {};
+    filterBy.forEach((property) => {
+      newMissionObject[property] = mission[property];
+    });
+    filteredMissions.push(newMissionObject);
+    return newMissionObject;
+  });
+  return filteredMissions;
 });
 
 const initialState = {

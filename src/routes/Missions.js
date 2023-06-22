@@ -1,10 +1,16 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import MissionsEntry from '../components/missions/missionEntry';
 import missionStyles from '../style/Missions.module.css';
+import { fetchMissions } from '../redux/missions/missionsSlice';
 
 const Missions = () => {
   const missions = useSelector((store) => store.missions.missions);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchMissions());
+  }, [dispatch]);
 
   return (
     <div className={missionStyles.missionsWrapper}>
