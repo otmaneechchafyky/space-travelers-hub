@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import MissionsEntry from '../components/missions/missionEntry';
-import missionStyles from '../components/missions/Missions.module.css';
+import missionStyles from '../style/Missions.module.css';
 
 const Missions = () => {
   const missions = useSelector((store) => store.missions.missions);

@@ -1,0 +1,44 @@
+.container {
+  padding: 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.item {
+  display: flex;
+  gap: 1rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.reservedBadge {
+  padding: 0.2rem;
+  font-size: 0.8rem;
+  background-color: #5f82eb;
+  margin-right: 0.4rem;
+  color: #fff;
+  border-radius: 10%;
+}
+
+.cancelBtn {
+  padding: 0.5rem;
+  width: 15%;
+  color: #0000007e;
+  background-color: transparent;
+  border: 2px solid #00000048;
+  border-radius: 5px;
+}
+
+.reserveBtn {
+  padding: 0.5rem;
+  width: 15%;
+  color: #fff;
+  background-color: #577ef1;
+  border: none;
+  border-radius: 5px;
+}

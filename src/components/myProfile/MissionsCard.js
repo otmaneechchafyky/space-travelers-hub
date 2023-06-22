@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import profileStyles from './Profile.module.css';
+import profileStyles from '../../style/Profile.module.css';
 
 const MissionsCard = () => {
   const missionsData = useSelector((store) => store.missions.missions);
@@ -11,12 +11,12 @@ const MissionsCard = () => {
   }, [missionsData]);
 
   return (
-    <div className={profileStyles.missionsCard}>
-      <h2 className={profileStyles.missionsHeader}>My Missions</h2>
-      <ul className={profileStyles.missionsList}>
+    <div className={profileStyles.card}>
+      <h2 className={profileStyles.header}>My Missions</h2>
+      <ul className={profileStyles.profileLists}>
         {activeMissions.map((mission) => (
           <li
-            className={profileStyles.mission}
+            className={profileStyles.item}
             key={mission.mission_id}
           >
             {mission.mission_name}

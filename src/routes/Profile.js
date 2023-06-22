@@ -3,9 +3,9 @@ import ReservedRockets from '../components/ReservedRockets';
 import MissionsCard from '../components/myProfile/MissionsCard';
 
 const Profile = () => (
-  <div>
-    <ReservedRockets />
+  <div className="profile-container">
     <MissionsCard />
+    <ReservedRockets />
   </div>
 );
 
