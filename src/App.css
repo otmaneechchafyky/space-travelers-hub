@@ -31,7 +31,7 @@ a::before {
 }
 
 a:hover::before,
-a.active::before{
+a.active::before {
   width: 100%;
 }
 
