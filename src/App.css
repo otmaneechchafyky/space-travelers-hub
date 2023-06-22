@@ -18,6 +18,12 @@ a {
   font-weight: 500;
 }
 
+a:active,
+a.active,
+a:hover {
+  text-decoration: underline;
+}
+
 .navbar {
   height: 100px;
   border-bottom: 2px solid gray;
