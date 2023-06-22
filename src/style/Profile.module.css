@@ -1,4 +1,4 @@
-.missionsCard {
+.card {
   width: 50%;
   padding: 2rem;
   display: flex;
@@ -7,14 +7,14 @@
   justify-content: flex-start;
 }
 
-.missionsHeader {
+.header {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
   align-self: flex-start;
 }
 
-.missionsList {
+.profileLists {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,11 +24,15 @@
   border-radius: 5px;
 }
 
-.mission {
+.item {
   width: 100%;
   padding: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid #6d757e;
+}
+
+.item:nth-child(even) {
+  background-color: rgba(211, 211, 211, 0.281);
 }

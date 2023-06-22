@@ -14,6 +14,8 @@
 a {
   text-decoration: none;
   list-style: none;
+  color: #5f82eb;
+  font-weight: 500;
 }
 
 .navbar {
@@ -34,4 +36,17 @@ a {
 
 .image {
   width: 20%;
+}
+
+.profile-container {
+  display: flex;
+}
+
+.loading {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
 }

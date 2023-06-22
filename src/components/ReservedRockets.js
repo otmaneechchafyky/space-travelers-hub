@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import profileStyles from '../style/Profile.module.css';
 
 const ReservedRockets = () => {
   const rocketsList = useSelector((state) => state.rockets.rocketsList);
@@ -9,11 +10,11 @@ const ReservedRockets = () => {
     setRocketItems(reservedRockets);
   }, [rocketsList]);
   return (
-    <div>
-      <h2>My Rockets</h2>
-      <ul>
+    <div className={profileStyles.card}>
+      <h2 className={profileStyles.header}>My Rockets</h2>
+      <ul className={profileStyles.profileLists}>
         {rocketItems.map((item) => (
-          <li key={item.id}>{item.rocket_name}</li>
+          <li className={profileStyles.item} key={item.id}>{item.rocket_name}</li>
         ))}
       </ul>
     </div>
