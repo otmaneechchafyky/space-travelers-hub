@@ -8,7 +8,7 @@ const MissionsCard = () => {
 
   useEffect(() => {
     setActiveMissions(missionsData.filter((mission) => mission.active === true));
-  }, [missionsData]);
+  }, []);
 
   return (
     <div className={profileStyles.card}>
