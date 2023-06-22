@@ -14,7 +14,20 @@ export const fetchRockets = createAsyncThunk('rockets/fetchRockets', async () =>
       throw new Error('Something went wrong');
     }
     const data = await resp.json();
-    return data;
+
+    const filterBy = ['id', 'rocket_name', 'description', 'flickr_images'];
+
+    // Filter the array and keep only the specified properties
+    const filteredData = data.map((obj) => {
+      const filteredObject = {};
+      filterBy.forEach((property) => {
+        if (Object.prototype.hasOwnProperty.call(obj, property)) {
+          filteredObject[property] = obj[property];
+        }
+      });
+      return filteredObject;
+    });
+    return (filteredData);
   } catch (error) {
     throw new Error(error);
   }
