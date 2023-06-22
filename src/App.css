@@ -14,12 +14,16 @@
 a {
   text-decoration: none;
   list-style: none;
-  color: #5f82eb;
+  color: #000;
   font-weight: 500;
   position: relative;
 }
 
-a::before {
+a:not(.logoLink) {
+  color: #5f82eb;
+}
+
+a:not(.logoLink)::before {
   content: "";
   display: inline-block;
   width: 0;
